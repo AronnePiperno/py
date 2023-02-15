@@ -1,15 +1,15 @@
 def problemsixtysix():
-    maxx = 900
+    maxx = 2
     maxD = -1
     
     
-    for D in range(29,1000):
+    for D in range(3,4):
 
         xrem = -1
         yrem = -1
         minimum = -1
         for x in range(maxx,100000):
-            for y in range(1,100000):
+            for y in range(1,x):
                 tmp = x**2-D*(y**2)
                 if tmp == 1:
                     minimum = tmp
@@ -62,7 +62,7 @@ def Codedtrianglenumbers():
     generalcounter = 0
 
     trianglenumbers = [n*(n+1)/2 for n in range(1000)]
-    
+
     for word in L:
         forsum = 0
         for letter in word:
@@ -74,9 +74,40 @@ def Codedtrianglenumbers():
     print(generalcounter)
 
 
-#import os
-#
-#cwd = os.getcwd()  # Get the current working directory (cwd)
-#files = os.listdir(cwd)  # Get all the files in that directory
-#print("Files in %r: %s" % (cwd, files))
-Codedtrianglenumbers()
+
+def compute_hcf(x, y):
+
+# choose the smaller number
+    if x > y:
+        smaller = y
+    else:
+        smaller = x
+    for i in range(1, smaller+1):
+        if((x % i == 0) and (y % i == 0)):
+            hcf = i 
+    return hcf
+def distinctpowers():
+    S = set()
+
+    for a in range(2,101):
+        for b in range(2,101):
+            S.add(a**b)
+    print(len(S))
+
+def OrderedFractions():
+    S = set()
+    i = 0
+    for n in range(1,1000000):
+        for d in range(n,1000000):
+            if compute_hcf(n,d) == 1 and n < d:
+                S.add(n/d)
+                print(S)
+            i+=1
+            #print(f'computing {i}')
+    print(S)
+
+            
+    
+
+
+OrderedFractions()
