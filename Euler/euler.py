@@ -1,3 +1,6 @@
+import math
+
+
 def problemsixtysix():
     maxx = 2
     maxD = -1
@@ -106,8 +109,55 @@ def OrderedFractions():
             #print(f'computing {i}')
     print(S)
 
-            
+def Powerdigitsum():
+    v = str(2**1000)
+    print(v)
+    print('---------')
+    summatory = 0
+    for digit in v:
+        print()
+        summatory += int(digit)
+    print(summatory)
     
+def Pentagonnumbers():
+    pentagon = [int(n*(3*n-1)/2) for n in range(1,5000)]
+    pentagonDict = {}
+    for i in pentagon:
+        pentagonDict[i] = 0
+    print('dict')
+    minimum = math.inf
+    i = 0
+    for j in range(0,len(pentagon)):
+        for k in range(j, len(pentagon)):
+            if pentagon[j]+pentagon[k] in pentagonDict and abs(pentagon[k]-pentagon[j]) in pentagonDict:
+                if abs(pentagon[k]-pentagon[j]) < minimum:
+                    minimum = abs(pentagon[k]-pentagon[j])
+                    print(f'partial {abs(pentagon[k]-pentagon[j])}')
+            i+=1
+            print(i, j)
+
+    print(minimum)
+def Triangularpentagonalhexagonal():
+    z = 100000
+    triangle = [int(n*(n+1)/2) for n in range(1,z)]
+    pentagonal = [int(n*(3*n-1)/2) for n in range(1,z)]
+    hexagonal = [int(n*(2*n-1)) for n in range(1,z)]
 
 
-OrderedFractions()
+    pentagonalDict = {}
+    hexagonalDict = {}
+
+    for i in pentagonal:
+        pentagonalDict[i] = 0
+
+    for i in hexagonal:
+        hexagonalDict[i] = 0
+    L = []
+    for n in triangle:
+        if n in pentagonalDict and n in hexagonalDict:
+            L.append(n)
+    print(L)
+
+Triangularpentagonalhexagonal()
+
+
