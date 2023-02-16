@@ -158,6 +158,92 @@ def Triangularpentagonalhexagonal():
             L.append(n)
     print(L)
 
-Triangularpentagonalhexagonal()
+
+def calculateCent(cent):
+    match unit:
+                case 0:
+                    summy += 0
+                case 1:
+                    summy += 3
+                case 2:
+                    summy += 3
+                case 3:
+                    summy += 5
+                case 4:
+                    summy += 4
+                case 5:
+                    summy += 4
+                case 6:
+                    summy += 3
+                case 7:
+                    summy += 5
+                case 8:
+                    summy += 5
+                case 9:
+                    summy += 4
+def calcualteDec(dec, summy = 0):
+        
+        match int(str(dec)[0]):
+                
+                case 1:
+                    summy += 3
+                case 2:
+                    summy += 6
+                case 3:
+                    summy += 6
+                case 4:
+                    summy += 5
+                case 5:
+                    summy += 5
+                case 6:
+                    summy += 5
+                case 7:
+                    summy += 7
+                case 8:
+                    summy += 6
+                case 9:
+                    summy += 6
+        return summy + calculateunit(int(str(dec)[1]))
+def calculateunit(unit, summy = 0):
+
+    match unit:
+                case 0:
+                    summy += 0
+                case 1:
+                    summy += 3
+                case 2:
+                    summy += 3
+                case 3:
+                    summy += 5
+                case 4:
+                    summy += 4
+                case 5:
+                    summy += 4
+                case 6:
+                    summy += 3
+                case 7:
+                    summy += 5
+                case 8:
+                    summy += 5
+                case 9:
+                    summy += 4
+
+    return summy
+def Numberlettercounts():
+    summy = 0
+    for number in range(1,12):
+        strnumber = str(number)
+        if number > 100:
+            pass
+        elif number > 10:
+            summy += calcualteDec(number)
+        else:
+            summy += calculateunit(number)
+            
+    print(summy)
+
+
+
+Numberlettercounts()
 
 
