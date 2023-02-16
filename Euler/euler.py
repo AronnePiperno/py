@@ -203,7 +203,7 @@ def calcualteDec(dec, summy = 0):
                     summy += 6
                 case 9:
                     summy += 6
-        return summy + calculateunit(int(str(dec)[1]))
+        return calculateunit(int(str(dec)[1]), summy)
 def calculateunit(unit, summy = 0):
 
     match unit:
@@ -231,7 +231,7 @@ def calculateunit(unit, summy = 0):
     return summy
 def Numberlettercounts():
     summy = 0
-    for number in range(1,12):
+    for number in range(1,10):
         strnumber = str(number)
         if number > 100:
             pass
