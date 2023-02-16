@@ -160,31 +160,63 @@ def Triangularpentagonalhexagonal():
 
 
 def calculateCent(cent):
-    match unit:
+    if cent == 1000:
+        return 11
+    if cent % 100 == 0:
+        
+        return calculateunit(int(str(cent)[0])) + 7
+    summy = 0
+    match int(str(cent)[0]):
+                case 1:
+                    summy += 3 + 10 + calcualteDec(int(str(cent)[1:]))
+                case 2:
+                    summy += 3 + 10 + calcualteDec(int(str(cent)[1:]))
+                case 3:
+                    summy += 5 + 10 + calcualteDec(int(str(cent)[1:]))
+                case 4:
+                    summy += 4 + 10 + calcualteDec(int(str(cent)[1:]))
+                case 5:
+                    summy += 4 + 10+ calcualteDec(int(str(cent)[1:]))
+                case 6:
+                    summy += 3 + 10 +calcualteDec(int(str(cent)[1:]))
+                case 7:
+                    summy += 5 + 10 + calcualteDec(int(str(cent)[1:]))
+                case 8:
+                    summy += 5 + 10 + calcualteDec(int(str(cent)[1:]))
+                case 9:
+                    summy += 4 + 10 + calcualteDec(int(str(cent)[1:]))
+
+    return summy
+
+
+def calcualteDec(dec, summy = 0):
+        if len(str(dec)) < 2:
+            return calculateunit(dec)
+        
+        if dec > 10 and dec < 20:
+            match dec:
+                case 11:
+                    return 6
+                case 12:
+                    return 6
+                case 13:
+                    return 8
+                case 14:
+                    return 8
+                case 15:
+                    return 7
+                case 16:
+                    return 7
+                case 17:
+                    return 9
+                case 18:
+                    return 8
+                case 19:
+                    return 8
+
+        match int(str(dec)[0]):
                 case 0:
                     summy += 0
-                case 1:
-                    summy += 3
-                case 2:
-                    summy += 3
-                case 3:
-                    summy += 5
-                case 4:
-                    summy += 4
-                case 5:
-                    summy += 4
-                case 6:
-                    summy += 3
-                case 7:
-                    summy += 5
-                case 8:
-                    summy += 5
-                case 9:
-                    summy += 4
-def calcualteDec(dec, summy = 0):
-        
-        match int(str(dec)[0]):
-                
                 case 1:
                     summy += 3
                 case 2:
@@ -231,14 +263,14 @@ def calculateunit(unit, summy = 0):
     return summy
 def Numberlettercounts():
     summy = 0
-    for number in range(1,10):
-        strnumber = str(number)
-        if number > 100:
-            pass
-        elif number > 10:
+    for number in range(1,1001):
+        if number >= 100:
+            summy += calculateCent(number)
+        elif number >= 10 and number < 100:
             summy += calcualteDec(number)
         else:
             summy += calculateunit(number)
+        
             
     print(summy)
 
