@@ -98,15 +98,14 @@ def distinctpowers():
     print(len(S))
 
 def OrderedFractions():
-    S = set()
+    S = []
     i = 0
-    for n in range(1,1000000):
-        for d in range(n,1000000):
+    for n in range(1,9):
+        for d in range(n,9):
             if compute_hcf(n,d) == 1 and n < d:
-                S.add(n/d)
-                print(S)
+                S.append(f'{n}/{d}')
             i+=1
-            #print(f'computing {i}')
+            print(f'computing {i} {n}')
     print(S)
 
 def Powerdigitsum():
@@ -274,8 +273,24 @@ def Numberlettercounts():
             
     print(summy)
 
+def ConcealedSquare():
+    n = 1010064540
+    for i in range(n, n*10,10):
+        n = i**2
+        stri = str(n)
+        j = 1
+        for k in range(0,20,2):
+            if int(stri[k]) == j:
+                if j == 9:
+                    j = 0
+                elif j == 0:
+                    print(f'found {i}')
+                    return i
+                else:
+                    j += 1
+            else:
+                break
+        print(i)
 
-
-Numberlettercounts()
 
 
