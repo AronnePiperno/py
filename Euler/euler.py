@@ -294,3 +294,39 @@ def ConcealedSquare():
 
 
 
+def LargeSum():
+    f = open('/home/def/Backup/py/Euler/numbers.txt', 'r')
+    L = f.read()
+    f.close()
+    
+    L = L.split('\n')
+    
+    summy = 0
+    for n in L:
+        try:
+            summy += int(n)
+        except:
+            pass
+    print(str(summy)[:10])
+
+def NamesScores():
+    f = open('/home/def/Backup/py/Euler/p022_names.txt', 'r')
+    names = f.read()
+    f.close()
+
+    names = names.replace('"', '')
+    names = names.split(',')
+    names.sort()
+    print(names)
+    summy = 0
+    i = 0
+    for name in range(0,len(names)):
+        tmp = 0
+        for let in names[name]:
+            tmp += ord(let) - ord('A') + 1
+        summy += tmp * (name+1)
+        #i+= 1
+        #print(i)
+    print(summy)
+
+NamesScores()
