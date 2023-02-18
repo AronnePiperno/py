@@ -329,4 +329,36 @@ def NamesScores():
         #print(i)
     print(summy)
 
-NamesScores()
+
+ 
+def prime_eratosthenes(n):
+    prime_list = set()
+    isprime = []
+    for i in range(2, n+1):
+        if i not in prime_list:
+            isprime.append(i)
+            for j in range(i*i, n+1, i):
+                prime_list.add(j)
+    return isprime
+
+def Reversibleprimesquares():
+    prime = prime_eratosthenes(50000000)
+    squareprime = set()
+    for num in prime:
+        squareprime.add(num**2)
+    print('Done')
+    summy = 0
+    j = 0
+    for n in squareprime:
+        if str(n) != str(n)[-1::-1]:
+            if int(str(n)[-1::-1]) in squareprime:
+                summy += n
+                j+=1
+                print(int(str(n)[-1::-1]), n)
+                if j == 50:
+                    print(f'50 {summy}')
+                    return
+
+    print(j, summy)
+
+Reversibleprimesquares()
